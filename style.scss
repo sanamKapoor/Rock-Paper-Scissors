@@ -1,0 +1,146 @@
+$primary-c: #003699;
+$dark-c: #333333;
+$light-c: #f4f4f4;
+$lose-c: #dc3545;
+$win-c: #28a745;
+$modal-duration: 1s;
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  
+  .container{
+    width: 80vw;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+    text-align: center;
+
+    .header {
+      text-align: center;
+      margin: 1rem 0;
+
+      h1{
+      margin-bottom: 1rem;
+      }
+
+      .restart-btn{
+        display: inline-block;
+        background: $light-c;
+        padding: 0.4rem 1.3rem;
+        font-size: 1rem;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        display: none;
+        margin: 10px 0;
+  
+        &:hover{
+          background: $primary-c;
+          color: #fff;
+        }
+      }
+
+
+      .score {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        font-size: 1.2rem;
+        color: #fff;
+
+        .p-01{
+          background: $primary-c;
+        }
+        .p-02{
+            background: $dark-c;
+        }
+        }
+
+    }
+    
+
+    .choices{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+
+      .choice{
+        cursor: pointer;
+
+        @media (max-width: 700px) {
+          font-size: 110px;
+        }
+
+        @media (max-width: 500px) {
+          font-size: 80px;
+        }
+
+        &:hover{
+          color: $primary-c;
+        }
+      }
+    }
+  }  
+    .modal{
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      overflow: auto;
+      background: rgba(0, 0, 0, 0.5);
+
+    .modal-content{
+        background: #fff;
+        text-align: center;
+        margin: 10% auto;
+        width: 350px;
+        border-radius: 10px;
+        padding: 3rem;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+        animation-name: modalopen;
+        animation-duration: $modal-duration;
+
+        h1{
+          margin-bottom: 1rem;
+        }
+        p{
+          font-size: 1.2rem;
+        margin-top: 1rem;
+
+        strong{
+          text-transform: uppercase;
+        }
+        }
+
+        .text-win{
+          color: $win-c;
+        }
+        .text-lose{
+          color: $lose-c;
+        }
+      }
+
+    @keyframes modalopen {
+      from {
+        opacity: 0;
+      }
+    
+      to {
+        opacity: 1;
+      }
+    }
+
+    }
+    
+}
